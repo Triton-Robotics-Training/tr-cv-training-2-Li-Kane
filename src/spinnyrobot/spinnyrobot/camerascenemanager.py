@@ -53,6 +53,10 @@ class CameraSceneManager:
         pm = p.computeProjectionMatrixFOV(90, 1, .1, 100)
         _, _, image, *_ = p.getCameraImage(width=640, height=640, viewMatrix=vm, projectionMatrix=pm,
                                            renderer=p.ER_TINY_RENDERER)
+        #take tuple image and reshape it to be put into cv2
+        image = np.array(image, dtype=np.uint8)
+        image = np.reshape(image, (640, 640, 4))
+
         image = image[:, :, :3]
         image = cvtColor(image, cv2.COLOR_RGB2BGR)
         return image
