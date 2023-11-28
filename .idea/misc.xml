@@ -3,4 +3,7 @@
   <component name="Black">
     <option name="sdkName" value="Python 3.11" />
   </component>
+  <component name="CMakeWorkspace" PROJECT_DIR="$PROJECT_DIR$/src/my_solution">
+    <contentRoot DIR="$PROJECT_DIR$" />
+  </component>
 </project>

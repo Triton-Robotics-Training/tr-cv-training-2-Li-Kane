@@ -26,10 +26,10 @@ if(BUILD_TESTING)
     ament_lint_auto_find_test_dependencies()
 endif()
 
-add_executable(converter src/image_converter.cpp)
-ament_target_dependencies(converter rclcpp std_msgs sensor_msgs cv_bridge image_transport OpenCV)
+add_executable(my_solution src/image_converter.cpp src/image_converter.h)
+ament_target_dependencies(my_solution rclcpp std_msgs sensor_msgs cv_bridge image_transport OpenCV)
 install(TARGETS
-    converter
+    my_solution
     DESTINATION lib/${PROJECT_NAME})
 
 ament_package()
