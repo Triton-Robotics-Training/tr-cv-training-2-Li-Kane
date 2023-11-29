@@ -29,11 +29,11 @@ private:
     rclcpp::Subscription<std_msgs::msg::Float32>::SharedPtr curr_angle_sub_;
 
     std_msgs::msg::Float32 curr_angle;
-    float angle;
     image_transport::Subscriber sub_;
+    float angle;
+    float avgX;
     cv::Mat nonZeros;
     cv::Mat avg;
-    cv::Point2f avgPoint;
 };
 
 #endif //TR_CV_TRAINING_2_LI_KANE_IMAGE_CONVERTER_H

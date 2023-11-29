@@ -15,7 +15,7 @@ ImageConverter::ImageConverter() : Node("image_converter"){
     void ImageConverter::angleCallback(const std_msgs::msg::Float32::SharedPtr msg){
         curr_angle = *msg;
         //log curr_angle value
-        RCLCPP_INFO(this->get_logger(), "curr_angle: %f", curr_angle.data);
+        //RCLCPP_INFO(this->get_logger(), "curr_angle: %f", curr_angle.data);
     }
 
     void ImageConverter::imageCallback(const sensor_msgs::msg::Image::ConstSharedPtr &msg) {
@@ -28,35 +28,33 @@ ImageConverter::ImageConverter() : Node("image_converter"){
 
         //find the non-zero pixels and average them
         findNonZero(dstImage, nonZeros);
-        double sumX = 0.0;
+        avgX = 0.0;
         // Iterate over the non-zero points
         for (size_t i = 0; i < nonZeros.total(); i++) {
-            sumX += nonZeros.at<cv::Point>(i).x;
+            avgX += nonZeros.at<cv::Point>(i).x;
         }
         // Calculate the average (x, y) coordinates
         if (nonZeros.total() > 0) {
-            avgPoint.x = static_cast<float>(sumX / nonZeros.total());
-            avgPoint.y = 0.0f;
+            avgX = avgX / nonZeros.total();
         } else {
             // Handle the case where there are no red pixels
-            avgPoint.x = -1.0f;
-            avgPoint.y = -1.0f;
+            avgX = -1.0f;
         }
         //log avgPoint coordinates
-        RCLCPP_INFO(this->get_logger(), "x: %f", avgPoint.x);
+        //RCLCPP_INFO(this->get_logger(), "x: %f", avgX);
         //find ratio of image width to average x coordinate
-        double ratio = (320.0 - avgPoint.x) / 320.0;
+        float ratio = (320.0 - avgX) / 320.0;
         //if absolute value of ratio is less than 0.185, keep current angle
-        if(avgPoint.x == -1.0f){
+        if(avgX == -1.0f){
             angle = 0.0f;
         }
         else if (abs(ratio) < 0.185) {
             angle = curr_angle.data;
         }
         else {
-            angle = static_cast<float>((ratio/8) * 0.785) + curr_angle.data;
+            angle = ((ratio/4) * 0.785) + curr_angle.data;
         }
-        RCLCPP_INFO(this->get_logger(), "new_angle: %f", angle);
+        //RCLCPP_INFO(this->get_logger(), "new_angle: %f", angle);
         curr_angle.data = angle;
 
         // Create a message object for publishing with a fixed value

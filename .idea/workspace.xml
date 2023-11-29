@@ -18,13 +18,7 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0ba59718-a7d6-404d-84dc-3f7070193b63" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/my_solution/src/image_converter.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/my_solution/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/my_solution/CMakeLists.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/my_solution/src/image_converter.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/my_solution/src/image_converter.cpp" afterDir="false" />
-    </list>
+    <list default="true" id="0ba59718-a7d6-404d-84dc-3f7070193b63" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -101,7 +95,7 @@
       <workItem from="1701188862161" duration="4914000" />
       <workItem from="1701198233276" duration="1131000" />
       <workItem from="1701199499315" duration="1419000" />
-      <workItem from="1701200967189" duration="4110000" />
+      <workItem from="1701200967189" duration="4217000" />
     </task>
     <servers />
   </component>
